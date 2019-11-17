@@ -2,8 +2,7 @@ dotnet build
 
 $_AppPath = ".\bin\Debug\netcoreapp2.2\PdfSpliter.dll"
 
-$_BaseDirectory = "C:\Users\Oshia\Sources\repo\work\sandbox\PdfSpliter\sandbox"
-
+$_BaseDirectory = "C:\Users\Oshia\Sources\repo\work\public\pdfspliter\sandbox"
 
 $SourcePdfFilePath = "${_BaseDirectory}\LargeDoc.pdf"
 

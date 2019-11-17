@@ -7,14 +7,24 @@ namespace PdfSpliter.Services {
     using PdfSpliter.Models;
     public class DocumentsService {
         private SettingsModel _settings { get; set; }
+        private bool _readyState { get; set; }
         public DocumentsService(SettingsModel settings) {
             _settings = settings;
             loadLicence();
         }
+
         private void loadLicence() {
-            License lic = new License();
-            lic.SetLicense("Aspose.Total.lic");
+            try {
+                License lic = new License();
+                lic.SetLicense("Aspose.Total.lic");
+                _readyState = true;
+
+            } catch (Exception) {
+                ExceptionsService.displayError(new Exception("Error in loading License file."));
+                _readyState = false;
+            }
         }
+        public bool isReady() => _readyState;
         public void doSplit() {
             try {
                 Document sourceDocument = new Document(_settings.SourcePdfFilePath);

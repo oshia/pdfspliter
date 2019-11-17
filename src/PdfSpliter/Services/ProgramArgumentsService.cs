@@ -14,7 +14,7 @@ namespace PdfSpliter.Services {
                 SettingsModel settingsModel = new SettingsModel();
                 // --- SourcePdfFilePath ---
                 if (!File.Exists(args[0])) {
-                    throw new Exception("SourcePdfFilePath not found.");
+                    throw new Exception($"SourcePdfFilePath not found. Path: {args[0]}");
                 } else {
                     settingsModel.SourcePdfFilePath = args[0];
                 }
